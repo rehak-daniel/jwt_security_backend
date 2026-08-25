@@ -3,7 +3,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/jwt_security_backend
+    url: jdbc:postgresql://localhost:5432/jwt_security
     username: postgres
     password: root
     driver-class-name: org.postgresql.Driver

@@ -1,0 +1,12 @@
+CREATE TABLE application_user (
+    id UUID PRIMARY KEY,
+    username VARCHAR(20) NOT NULL UNIQUE,
+    password VARCHAR(255),
+    email VARCHAR(255) UNIQUE,
+    first_name VARCHAR(255),
+    last_name VARCHAR(255),
+    birth_date DATE,
+    role VARCHAR(20) NOT NULL DEFAULT 'ROLE_USER',
+    active BOOLEAN NOT NULL DEFAULT TRUE,
+    created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
