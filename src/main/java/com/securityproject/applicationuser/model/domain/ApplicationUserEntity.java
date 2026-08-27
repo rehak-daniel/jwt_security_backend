@@ -1,9 +1,10 @@
-package com.securityproject.applicationuser.domain;
+package com.securityproject.applicationuser.model.domain;
 import java.util.UUID;
+
+import com.securityproject.applicationuser.model.enums.Role;
+
 import java.time.Instant;
 import java.time.LocalDate;
-
-import com.securityproject.applicationuser.enums.Role;
 
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
