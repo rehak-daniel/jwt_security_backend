@@ -10,5 +10,6 @@ public class EndpointPath {
     public static class User {
 
         public static final String USER__REGISTER = BASE_PATH + "/user/register";
+        public static final String USER__LOGIN = BASE_PATH + "/user/login";
     }
 }
