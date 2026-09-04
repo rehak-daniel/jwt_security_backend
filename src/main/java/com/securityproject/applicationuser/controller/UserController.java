@@ -8,10 +8,13 @@ import com.securityproject.constant.EndpointPath;
 import lombok.AllArgsConstructor;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.GetMapping;
+
 
 
 
@@ -33,5 +36,13 @@ public class UserController {
         userService.registerBasicUser(userBasicRegistrationDto);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
+
+
+    //Test endpoint to get the currently authenticated user's profile
+    @GetMapping("/api/user/me")
+    public ResponseEntity<String> getMyProfile(Authentication authentication) {
+        return new ResponseEntity<>(authentication.getName() + " logged in", HttpStatus.OK);
+    }
+    
     
 }

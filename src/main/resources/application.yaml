@@ -27,3 +27,9 @@ application:
       expiration: 86400000 #1 day in milliseconds
 
 cors-policies: http://localhost:4200, http://localhost:3000
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
