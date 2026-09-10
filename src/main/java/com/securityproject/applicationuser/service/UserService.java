@@ -2,6 +2,13 @@ package com.securityproject.applicationuser.service;
 
 import com.securityproject.applicationuser.repository.UserRepository;
 import lombok.AllArgsConstructor;
+
+import java.util.List;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import com.securityproject.security.service.JwtService; 
 import org.springframework.stereotype.Service;
@@ -29,7 +36,17 @@ public class UserService {
             throw new IllegalArgumentException("Invalid username or password");
         }
         
-        String token = jwtService.generateToken(user.getUsername());
+        List<GrantedAuthority> authorities = List.of(
+        new SimpleGrantedAuthority(user.getRole().toString())
+        );
+
+        UserDetails userDetails = new User(
+        user.getUsername(),
+        user.getPassword(),
+        authorities
+        );
+
+        String token = jwtService.generateToken(userDetails);
         return new AuthResponse(token);
     }
 
