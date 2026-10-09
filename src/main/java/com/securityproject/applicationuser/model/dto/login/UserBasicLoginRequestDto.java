@@ -1,18 +1,11 @@
 package com.securityproject.applicationuser.model.dto.login;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.validation.constraints.NotBlank;
 
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-public class UserBasicLoginRequestDto {
-    
-    private String username;
-    private String password;
-}
+public record UserBasicLoginRequestDto(
+    @NotBlank(message = "{login.username.notblank}")
+    String username,
+
+    @NotBlank(message = "{login.password.notblank}")
+    String password
+) {}
